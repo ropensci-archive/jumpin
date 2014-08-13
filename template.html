@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type='text/javascript' src='js/sortable.min.js'></script>
+  <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
+  <script type='text/javascript' src='js/jquery.sparkline.min.js'></script>
+  <link rel='stylesheet' href='css/sortable-theme-bootstrap.css' />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+
+  <script type='text/javascript'>
+    $(function() {
+      $('.inlinesparkline').sparkline('html', {width: '100px', lineColor: '#DCAB49', fillColor: '#DBDED3', spotColor: ''});
+    });
+  </script>
+</head>
+
+<body>
+<table class='sortable-theme-bootstrap table-responsive' data-sortable>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Ver (GH)</th>
+      <th>Open issues</th>
+      <th>Closed issues</th>
+      <th>Milestones</th>
+      <th>Contribs</th>
+      <th>Stars</th>
+      <th>Forks</th>
+      <th>PR's</th>
+      <th data-sortable='false'>Commits (52wk)</th>
+      <th>Downloads</th>
+      <th>On CRAN?</th>
+      <th data-sortable='false'>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#out}}
+    <tr>
+      <td><a href="https://github.com/ropensci/{{package}}" class="btn btn-primary btn-sm" role="button">{{package}}</a></td>
+      <td>{{ver}}</td>
+      <td>{{iss_open}}</td>
+      <td>{{iss_closed}}</td>
+      <td>{{milestones}}</td>
+      <td>{{contribs}}</td>
+      <td>{{stars}}</td>
+      <td>{{forks}}</td>
+      <td>{{prs}}</td>
+      <td><span class='inlinesparkline'>{{sparkline}}</span></td>
+      <td>{{downloads}}</td>
+      <td>{{cran}}</td>
+      <td>{{notes}}</td>
+    </tr>
+    {{/out}}
+  </tbody>
+</table>
+</body>
+</html>

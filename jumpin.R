@@ -5,6 +5,7 @@ library('httr')
 library('whisker')
 library('yaml')
 
+## Define your packages
 pkgs <- c('alm','AntWeb','bmc','bold','clifro','dependencies','ecoengine','ecoretriever','elastic',
           'elife','floras','fulltext','geonames','gistr','jekyll-knitr','knitr-ruby','mocker',
           'neotoma','plotly','rAltmetric','rAvis','rbhl','rbison','rcrossref','rdatacite','rdryad',
@@ -13,9 +14,7 @@ pkgs <- c('alm','AntWeb','bmc','bold','clifro','dependencies','ecoengine','ecore
           'RMendeley','rmetadata','RNeXML','rnoaa','rnpn','rotraits','rplos','rsnps','rspringer',
           'rvertnet','rWBclimate','solr','spocc','taxize','togeojson','treeBASE','ucipp')
 
-## Get Github stats
-library('httr')
-
+## Functions
 github_auth <- function(appname=getOption('gh_appname'), key=getOption('gh_id'), secret=getOption('gh_secret')){
   if(is.null(getOption('gh_token'))){
     myapp <- oauth_app(appname, key, secret)
@@ -117,7 +116,8 @@ gh_check_file <- function(owner='ropensci', repo, ...){
 parse_desc_file <- function(x){
   tmp <- gsub("\n\\s+", "\n", paste(vapply(strsplit(x, "\n")[[1]], RCurl::base64Decode, character(1), USE.NAMES = FALSE), collapse = " "))
   lines <- readLines(textConnection(tmp))
-  sub("Version:\\s+|Version:\\s+", "", lines[grep("Version", lines)])
+  lines <- vapply(lines, gsub, character(1), pattern = "\\s", replacement = "", USE.NAMES = FALSE)
+  sub("Version:\\s+|Version:|Version\\s:", "", lines[grep("Version", lines)])
 }
 
 check_cran <- function(pkg){
@@ -163,67 +163,11 @@ for_each_pkg <- function(repo){
        prs=NROW(pr), sparkline=cm_spark, downloads=0, cran=oncran, notes='Nada')
 }
 
+
+## Run this to generate data 
 out <- lapply(pkgs, for_each_pkg)
-html <- whisker.render(template)
+
+## Run this to generate the html, write the file, and open it in your default browser
+html <- whisker.render(readLines('template.html'))
 write(html, 'index.html')
 browseURL('index.html')
-
-template <-
-"
-<!DOCTYPE html>
-<html>
-<head>
-  <script type='text/javascript' src='js/sortable.min.js'></script>
-  <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
-  <script type='text/javascript' src='js/jquery.sparkline.min.js'></script>
-  <link rel='stylesheet' href='css/sortable-theme-bootstrap.css' />
-
-  <script type='text/javascript'>
-    $(function() {
-      $('.inlinesparkline').sparkline('html', {width: '100px', lineColor: '#DCAB49', fillColor: '#DBDED3', spotColor: ''});
-    });
-  </script>
-</head>
-
-<body>
-<table class='sortable-theme-bootstrap table-responsive' data-sortable>
-  <thead>
-    <tr>
-      <th>Package</th>
-      <th>Ver (GH)</th>
-      <th>Open issues</th>
-      <th>Closed issues</th>
-      <th>Milestones</th>
-      <th>Contribs</th>
-      <th>Stars</th>
-      <th>Forks</th>
-      <th>PR's</th>
-      <th data-sortable='false'>Commits (52wk)</th>
-      <th>Downloads (cran)</th>
-      <th>On CRAN?</th>
-      <th data-sortable='false'>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#out}}
-    <tr>
-      <td>{{package}}</td>
-      <td>{{ver}}</td>
-      <td>{{iss_open}}</td>
-      <td>{{iss_closed}}</td>
-      <td>{{milestones}}</td>
-      <td>{{contribs}}</td>
-      <td>{{stars}}</td>
-      <td>{{forks}}</td>
-      <td>{{prs}}</td>
-      <td><span class='inlinesparkline'>{{sparkline}}</span></td>
-      <td>{{downloads}}</td>
-      <td>{{cran}}</td>
-      <td>{{notes}}</td>
-    </tr>
-    {{/out}}
-  </tbody>
-</table>
-</body>
-</html>
-"
