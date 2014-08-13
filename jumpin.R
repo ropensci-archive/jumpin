@@ -165,8 +165,8 @@ for_each_pkg <- function(repo){
 
 out <- lapply(pkgs, for_each_pkg)
 html <- whisker.render(template)
-write(html, 'jumpin.html')
-browseURL('jumpin.html')
+write(html, 'index.html')
+browseURL('index.html')
 
 template <-
 "
