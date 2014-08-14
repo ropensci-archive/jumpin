@@ -3,7 +3,7 @@
 This was made by/with:
 
 * Github API via custom functions, see `jumpin.R`
-* Sorting for the table comes from [Sortable](http://github.hubspot.com/sortable/)
+* Sorting for the table comes from [bootstrap-sortable](https://github.com/drvic10k/bootstrap-sortable)
 * Sparkline plots come from [jQuery Sparklines](http://omnipotent.net/jquery.sparkline/#s-about)
 * Bootstrap table styling
 
