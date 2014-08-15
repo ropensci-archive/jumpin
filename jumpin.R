@@ -1,5 +1,5 @@
 ## setup, list packages
-library('github')
+# library('github')
 library('devtools')
 library('httr')
 library('whisker')

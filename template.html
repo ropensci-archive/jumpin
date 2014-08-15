@@ -3,9 +3,15 @@
 <head>
   <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
   <script type='text/javascript' src='js/jquery.sparkline.min.js'></script>
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href="css/bootstrap-sortable.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-
+  <style>
+  body, p, th, td {
+    font-family: 'Source Code Pro', ;
+  }
+  </style>
+  
   <script type='text/javascript'>
     $(function() {
       $('.inlinesparkline').sparkline('html', {width: '100px', lineColor: '#DCAB49', fillColor: '#DBDED3', spotColor: ''});
@@ -18,7 +24,7 @@
   <thead>
     <tr>
       <th>Package</th>
-      <th>Ver (GH)</th>
+      <!-- <th>Ver (GH)</th> -->
       <th>Open issues</th>
       <th>Closed issues</th>
       <th>Milestones</th>
@@ -35,8 +41,8 @@
   <tbody>
     {{#out}}
     <tr>
-      <td><a href="https://github.com/ropensci/{{package}}" class="btn btn-primary btn-sm" role="button">{{package}}</a></td>
-      <td>{{ver}}</td>
+      <td><a href="https://github.com/ropensci/{{package}}" class="btn btn-primary btn-sm" role="button">{{package}}, {{ver}}</a></td>
+      <!-- <td>{{ver}}</td> -->
       <td>{{iss_open}}</td>
       <td>{{iss_closed}}</td>
       <td>{{milestones}}</td>
