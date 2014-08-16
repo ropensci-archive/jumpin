@@ -12,7 +12,7 @@ pkgs <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine",
     "rgauges", "rgbif", "rglobi", "rhindawi", "rImpactStory", "rinat", "RMendeley", 
     "rmetadata", "RNeXML", "rnoaa", "rnpn", "rotraits", "rplos", "rsnps", "rspringer", 
     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
-    "ucipp")
+    "ucipp", "testdat", "git2r")
 ## Functions
 github_auth <- function(appname = getOption("gh_appname"), key = getOption("gh_id"), 
     secret = getOption("gh_secret")) {
@@ -121,7 +121,7 @@ check_cran <- function(pkg) {
         tmp <- data.frame(available.packages(), stringsAsFactors = FALSE)
         saveRDS(tmp, "availpkgs.rds")
     }
-    ifelse(pkg %in% out$Package, "label label-default", "label label-success")
+    ifelse(pkg %in% out$Package, "label label-success", "label label-default")
 }
 for_each_pkg <- function(repo) {
     iss_o <- gh_issues(repo = repo)
