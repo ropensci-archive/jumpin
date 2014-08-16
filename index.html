@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <title>rOpenSci package status page</title>
   <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
   <script type='text/javascript' src='js/jquery.sparkline.min.js'></script>
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href="css/bootstrap-sortable.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/octicons.css">
+  <link rel="stylesheet" href="style/hint.min.css">
+  <style>
+.label {
+  font-variant: small-caps;
+}
+.ver {
+  color: #ccc;
+}
+.mouse td, th {
+    font-family: 'Source Code Pro';
+  }
+ .mouse th {
+  font-style: bold;
+ } 
 
+a.tooltip {outline:none; }
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {
+    z-index:10;display:none; padding:14px 20px;
+    margin-top:-30px; margin-left:28px;
+    width:240px; line-height:16px;
+}
+a.tooltip:hover span{
+    display:inline; position:absolute; color:#111;
+    border:1px solid #DCA; background:#fffAF0;}
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
+    
+/*CSS3 extras*/
+a.tooltip span
+{
+    border-radius:4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+        
+    -moz-box-shadow: 5px 5px 8px #CCC;
+    -webkit-box-shadow: 5px 5px 8px #CCC;
+    box-shadow: 5px 5px 8px #CCC;
+}
+  </style>
+  
   <script type='text/javascript'>
     $(function() {
       $('.inlinesparkline').sparkline('html', {width: '100px', lineColor: '#DCAB49', fillColor: '#DBDED3', spotColor: ''});
@@ -14,28 +57,28 @@
 </head>
 
 <body>
-<table class='table table-striped table-responsive sortable'>
+<table class='table table-striped table-responsive sortable mouse'>
   <thead>
     <tr>
       <th>Package</th>
-      <th>Ver (GH)</th>
-      <th>Open issues</th>
-      <th>Closed issues</th>
-      <th>Milestones</th>
-      <th>Contribs</th>
-      <th>Stars</th>
-      <th>Forks</th>
-      <th>PR's</th>
-      <th data-sortable='false'>Commits (52wk)</th>
-      <th>Downloads</th>
-      <th>On CRAN?</th>
-      <th data-sortable='false'>Notes</th>
+      <!-- <th>Ver (GH)</th> -->
+      <th><span class="hint--bottom" data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Closed Issues"><span class="octicon octicon-issue-closed"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Milestones"><span class="octicon octicon-milestone"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Contributors"><span class="octicon octicon-organization"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Stars"><span class="octicon octicon-star"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Forks"><span class="octicon octicon-repo-forked"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Pull Requests"><span class="octicon octicon-git-pull-request"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Downloads from GitHub"><span class="octicon octicon-cloud-download"></span></span></th>
+      <!-- <th>CRAN status</th> -->
+      <th data-sortable='false'><span class="hint--bottom" data-hint="52 week activity report"><span class="octicon octicon-pulse"></span> (52wk)</span></th>
+      <!-- <th data-sortable='false'><span class="octicon octicon-comment"></span></th> -->
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/ropensci/alm" class="btn btn-primary btn-sm" role="button">alm</a></td>
-      <td>0.1.9</td>
+      <td><a href="https://github.com/ropensci/alm">alm </a>  <span class="ver">0.1.9</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1.9</td> -->
       <td>10</td>
       <td>11</td>
       <td>2</td>
@@ -43,14 +86,14 @@
       <td>5</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,3,4,4,3,3,0,5,2,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,3,0,0,0,2,4,2,0,4,0,0,0,0,0,2,6,7,0,0,0,0,0,0,1,1</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,3,4,4,3,3,0,5,2,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,3,0,0,0,2,4,2,0,4,0,0,0,0,0,2,6,7,0,0,0,0,0,0,1,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/AntWeb" class="btn btn-primary btn-sm" role="button">AntWeb</a></td>
-      <td>0.7.99</td>
+      <td><a href="https://github.com/ropensci/AntWeb">AntWeb </a>  <span class="ver">0.7.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.7.99</td> -->
       <td>0</td>
       <td>17</td>
       <td>0</td>
@@ -58,14 +101,14 @@
       <td>5</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'></span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,34,22,13,1,10,63,0,6,0,0,0,0,0,0,0,0,0,5,0,0,4,0,0,0,0,0,1,16</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/bmc" class="btn btn-primary btn-sm" role="button">bmc</a></td>
-      <td>0.0.2</td>
+      <td><a href="https://github.com/ropensci/bmc">bmc </a>  <span class="ver">0.0.2</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.2</td> -->
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -73,14 +116,14 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/bold" class="btn btn-primary btn-sm" role="button">bold</a></td>
-      <td>0.2.0.99</td>
+      <td><a href="https://github.com/ropensci/bold">bold </a>  <span class="ver">0.2.0.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.2.0.99</td> -->
       <td>0</td>
       <td>15</td>
       <td>0</td>
@@ -88,14 +131,14 @@
       <td>2</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-default</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,5,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,11,0,25,1</span></td>
-      <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/clifro" class="btn btn-primary btn-sm" role="button">clifro</a></td>
-      <td>1.0-0</td>
+      <td><a href="https://github.com/ropensci/clifro">clifro </a>  <span class="ver">1.0-0</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>1.0-0</td> -->
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -103,14 +146,14 @@
       <td>1</td>
       <td>3</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,20,4,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/dependencies" class="btn btn-primary btn-sm" role="button">dependencies</a></td>
-      <td>0.0-1</td>
+      <td><a href="https://github.com/ropensci/dependencies">dependencies </a>  <span class="ver">0.0-1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0-1</td> -->
       <td>0</td>
       <td>2</td>
       <td>0</td>
@@ -118,14 +161,14 @@
       <td>3</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/ecoengine" class="btn btn-primary btn-sm" role="button">ecoengine</a></td>
-      <td>1.5.99</td>
+      <td><a href="https://github.com/ropensci/ecoengine">ecoengine </a>  <span class="ver">1.5.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>1.5.99</td> -->
       <td>4</td>
       <td>30</td>
       <td>4</td>
@@ -133,14 +176,14 @@
       <td>4</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'></span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,1,6,0,27,4,3,5,4,33,110,29,27,0,2,1,10,6,4,16,6,0,0,0,0,0,0,0,2,0,7,0,1,0,0,4,1,34,0,10,23</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/ecoretriever" class="btn btn-primary btn-sm" role="button">ecoretriever</a></td>
-      <td>0.1</td>
+      <td><a href="https://github.com/ropensci/ecoretriever">ecoretriever </a>  <span class="ver">0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.1</td> -->
       <td>3</td>
       <td>17</td>
       <td>0</td>
@@ -148,14 +191,14 @@
       <td>1</td>
       <td>2</td>
       <td>1</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,5,0,25,0,6,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/elastic" class="btn btn-primary btn-sm" role="button">elastic</a></td>
-      <td>0.0.9</td>
+      <td><a href="https://github.com/ropensci/elastic">elastic </a>  <span class="ver">0.0.9</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.9</td> -->
       <td>6</td>
       <td>2</td>
       <td>1</td>
@@ -163,14 +206,14 @@
       <td>6</td>
       <td>4</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,6,0,7,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0,0,13,5,11,0,0,0,0,3</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/elife" class="btn btn-primary btn-sm" role="button">elife</a></td>
-      <td>0.0.1</td>
+      <td><a href="https://github.com/ropensci/elife">elife </a>  <span class="ver">0.0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.1</td> -->
       <td>0</td>
       <td>2</td>
       <td>0</td>
@@ -178,14 +221,14 @@
       <td>4</td>
       <td>2</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/floras" class="btn btn-primary btn-sm" role="button">floras</a></td>
-      <td>0.0.8</td>
+      <td><a href="https://github.com/ropensci/floras">floras </a>  <span class="ver">0.0.8</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.8</td> -->
       <td>1</td>
       <td>1</td>
       <td>0</td>
@@ -193,29 +236,29 @@
       <td>3</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/fulltext" class="btn btn-primary btn-sm" role="button">fulltext</a></td>
-      <td>0.0.1</td>
-      <td>4</td>
+      <td><a href="https://github.com/ropensci/fulltext">fulltext </a>  <span class="ver">0.0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.1</td> -->
+      <td>5</td>
       <td>0</td>
       <td>0</td>
       <td>2</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,13,0,0,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/geonames" class="btn btn-primary btn-sm" role="button">geonames</a></td>
-      <td>0.996</td>
+      <td><a href="https://github.com/ropensci/geonames">geonames </a>  <span class="ver">0.996</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.996</td> -->
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -223,29 +266,29 @@
       <td>3</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-default</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,2,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
-      <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/gistr" class="btn btn-primary btn-sm" role="button">gistr</a></td>
-      <td>0.0.2</td>
+      <td><a href="https://github.com/ropensci/gistr">gistr </a>  <span class="ver">0.0.2</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.2</td> -->
       <td>2</td>
       <td>3</td>
       <td>0</td>
       <td>2</td>
-      <td>7</td>
+      <td>8</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,14,0,0,0,0,0,0,0,0,0,0,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/jekyll-knitr" class="btn btn-primary btn-sm" role="button">jekyll-knitr</a></td>
-      <td>NA</td>
+      <td><a href="https://github.com/ropensci/jekyll-knitr">jekyll-knitr </a>  <span class="ver">NA</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>NA</td> -->
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -253,14 +296,14 @@
       <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/knitr-ruby" class="btn btn-primary btn-sm" role="button">knitr-ruby</a></td>
-      <td>0.1</td>
+      <td><a href="https://github.com/ropensci/knitr-ruby">knitr-ruby </a>  <span class="ver">0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.1</td> -->
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -268,14 +311,14 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/mocker" class="btn btn-primary btn-sm" role="button">mocker</a></td>
-      <td>0.0.5</td>
+      <td><a href="https://github.com/ropensci/mocker">mocker </a>  <span class="ver">0.0.5</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.5</td> -->
       <td>5</td>
       <td>0</td>
       <td>0</td>
@@ -283,14 +326,14 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/neotoma" class="btn btn-primary btn-sm" role="button">neotoma</a></td>
-      <td>1.0-1</td>
+      <td><a href="https://github.com/ropensci/neotoma">neotoma </a>  <span class="ver">1.0-1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>1.0-1</td> -->
       <td>6</td>
       <td>30</td>
       <td>0</td>
@@ -298,14 +341,14 @@
       <td>7</td>
       <td>4</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,7,4,2,0,0,2,0,0,1,0,3,0,0,0,0,0,0,0,0,2,3,0,0,0,0,4,0,0,0,5,0,0,1,2,0,0,2,1,2,0,1,1,2,3,11,3,4,2,0,6,5</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,7,4,2,0,0,2,0,0,1,0,3,0,0,0,0,0,0,0,0,2,3,0,0,0,0,4,0,0,0,5,0,0,1,2,0,0,2,1,2,0,1,1,2,3,11,3,4,2,0,6,5</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/plotly" class="btn btn-primary btn-sm" role="button">plotly</a></td>
-      <td>0.4</td>
+      <td><a href="https://github.com/ropensci/plotly">plotly </a>  <span class="ver">0.4</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.4</td> -->
       <td>30</td>
       <td>30</td>
       <td>0</td>
@@ -313,14 +356,14 @@
       <td>30</td>
       <td>17</td>
       <td>2</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,2,0,0,0,0,0,0,0,0,0,0,1,8,13,3,5,0,3,8,1,4,4,7,5,10,8,1,4,8,18,4,4,1,0,16,0,10</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,2,0,0,0,0,0,0,0,0,0,0,1,8,13,3,5,0,3,8,1,4,4,7,5,10,8,1,4,8,18,4,4,1,0,16,0,14</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rAltmetric" class="btn btn-primary btn-sm" role="button">rAltmetric</a></td>
-      <td>0.5</td>
+      <td><a href="https://github.com/ropensci/rAltmetric">rAltmetric </a>  <span class="ver">0.5</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.5</td> -->
       <td>0</td>
       <td>9</td>
       <td>1</td>
@@ -328,14 +371,14 @@
       <td>4</td>
       <td>4</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,2,0,0,1,0,1,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,2,0,0,1,0,1,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rAvis" class="btn btn-primary btn-sm" role="button">rAvis</a></td>
-      <td>0.1.2</td>
+      <td><a href="https://github.com/ropensci/rAvis">rAvis </a>  <span class="ver">0.1.2</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.1.2</td> -->
       <td>0</td>
       <td>13</td>
       <td>0</td>
@@ -343,14 +386,14 @@
       <td>3</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,4,1,12,9,1,5,1,0,0,0,31,2,0,0,0,0,0,5,0,0,2,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,4,1,12,9,1,5,1,0,0,0,31,2,0,0,0,0,0,5,0,0,2,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rbhl" class="btn btn-primary btn-sm" role="button">rbhl</a></td>
-      <td>0.1.3</td>
+      <td><a href="https://github.com/ropensci/rbhl">rbhl </a>  <span class="ver">0.1.3</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1.3</td> -->
       <td>3</td>
       <td>5</td>
       <td>1</td>
@@ -358,14 +401,14 @@
       <td>3</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,4,9,0,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,0,3,0,2,0,0,0,0,0,0,0,0,0,1</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,4,9,0,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,0,3,0,2,0,0,0,0,0,0,0,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rbison" class="btn btn-primary btn-sm" role="button">rbison</a></td>
-      <td>0.4.0</td>
+      <td><a href="https://github.com/ropensci/rbison">rbison </a>  <span class="ver">0.4.0</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.4.0</td> -->
       <td>3</td>
       <td>22</td>
       <td>0</td>
@@ -373,14 +416,14 @@
       <td>5</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,1,0,0,0,0,0,3,0,0,7,0,0,0,0,0,0,1,6,5,1,2,0,0,0,0,0,0,2,0,0,0,0,0,9,6,0,0,0,0,1,0,0,0,0,0,4</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,1,0,0,0,0,0,3,0,0,7,0,0,0,0,0,0,1,6,5,1,2,0,0,0,0,0,0,2,0,0,0,0,0,9,6,0,0,0,0,1,0,0,0,0,0,4</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rcrossref" class="btn btn-primary btn-sm" role="button">rcrossref</a></td>
-      <td>0.1.5</td>
+      <td><a href="https://github.com/ropensci/rcrossref">rcrossref </a>  <span class="ver">0.1.5</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.1.5</td> -->
       <td>6</td>
       <td>13</td>
       <td>0</td>
@@ -388,14 +431,14 @@
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,2,1,0,1,4,0,1,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,17,3,0,0,8,4,0,0,0,0,1</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,2,1,0,1,4,0,1,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,17,3,0,0,8,4,0,0,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rdatacite" class="btn btn-primary btn-sm" role="button">rdatacite</a></td>
-      <td>0.0.1</td>
+      <td><a href="https://github.com/ropensci/rdatacite">rdatacite </a>  <span class="ver">0.0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.1</td> -->
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -403,14 +446,14 @@
       <td>5</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rdryad" class="btn btn-primary btn-sm" role="button">rdryad</a></td>
-      <td>0.1.1</td>
+      <td><a href="https://github.com/ropensci/rdryad">rdryad </a>  <span class="ver">0.1.1</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1.1</td> -->
       <td>6</td>
       <td>3</td>
       <td>0</td>
@@ -418,14 +461,14 @@
       <td>10</td>
       <td>3</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rebird" class="btn btn-primary btn-sm" role="button">rebird</a></td>
-      <td>0.1.1</td>
+      <td><a href="https://github.com/ropensci/rebird">rebird </a>  <span class="ver">0.1.1</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1.1</td> -->
       <td>3</td>
       <td>20</td>
       <td>2</td>
@@ -433,14 +476,14 @@
       <td>8</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,1,0,13,1,2,0,0,0,0,0,0,0,0,0,8,4,1,0,0,0,0,1,0,0,0,8,0,7,1,0,1,0,0,2,0,1,0,0,0,2</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,1,0,13,1,2,0,0,0,0,0,0,0,0,0,8,4,1,0,0,0,0,1,0,0,0,8,0,7,1,0,1,0,0,2,0,1,0,0,0,2</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rentrez" class="btn btn-primary btn-sm" role="button">rentrez</a></td>
-      <td>0.2.4</td>
+      <td><a href="https://github.com/ropensci/rentrez">rentrez </a>  <span class="ver">0.2.4</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.2.4</td> -->
       <td>3</td>
       <td>13</td>
       <td>0</td>
@@ -448,14 +491,14 @@
       <td>26</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,2,0,0,0,0,7,8,1,0,0,0,13,1,0,0,0,0,0,1</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,2,0,0,0,0,7,8,1,0,0,0,13,1,0,0,0,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/reol" class="btn btn-primary btn-sm" role="button">reol</a></td>
-      <td>1.6</td>
+      <td><a href="https://github.com/ropensci/reol">reol </a>  <span class="ver">1.6</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>1.6</td> -->
       <td>2</td>
       <td>1</td>
       <td>0</td>
@@ -463,14 +506,14 @@
       <td>3</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/reproducibility-guide" class="btn btn-primary btn-sm" role="button">reproducibility-guide</a></td>
-      <td>NA</td>
+      <td><a href="https://github.com/ropensci/reproducibility-guide">reproducibility-guide </a>  <span class="ver">NA</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>NA</td> -->
       <td>8</td>
       <td>30</td>
       <td>0</td>
@@ -478,14 +521,14 @@
       <td>30</td>
       <td>14</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,39,13,11,6,4,24,3,3,0,0,0,0,0,0,2,0,8,3,2,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,39,13,11,6,4,24,3,3,0,0,0,0,0,0,2,0,8,3,2,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rfigshare" class="btn btn-primary btn-sm" role="button">rfigshare</a></td>
-      <td>0.3.5.99</td>
+      <td><a href="https://github.com/ropensci/rfigshare">rfigshare </a>  <span class="ver">0.3.5.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.3.5.99</td> -->
       <td>6</td>
       <td>30</td>
       <td>2</td>
@@ -493,14 +536,14 @@
       <td>15</td>
       <td>3</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,8,0,0,8,0,0,1,0,0,0,0,0,3,36,3,1,0,0,0,1,1,0,0,0,3,0,0,0,0,0,6,0,0,1,0</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,8,0,0,8,0,0,1,0,0,0,0,0,3,36,3,1,0,0,0,1,1,0,0,0,3,0,0,0,0,0,6,0,0,1,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rfishbase" class="btn btn-primary btn-sm" role="button">rfishbase</a></td>
-      <td>0.2-3.99</td>
+      <td><a href="https://github.com/ropensci/rfishbase">rfishbase </a>  <span class="ver">0.2-3.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.2-3.99</td> -->
       <td>13</td>
       <td>16</td>
       <td>0</td>
@@ -508,14 +551,14 @@
       <td>9</td>
       <td>3</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,6,1,0,0,0,0,0,0,0,2,5,0,3,4,0,1,0,1,0,1,0,0,0,0,0,0,1,1,0,0,2,0</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,6,1,0,0,0,0,0,0,0,2,5,0,3,4,0,1,0,1,0,1,0,0,0,0,0,0,1,1,0,0,2,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rfisheries" class="btn btn-primary btn-sm" role="button">rfisheries</a></td>
-      <td>0.1</td>
+      <td><a href="https://github.com/ropensci/rfisheries">rfisheries </a>  <span class="ver">0.1</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1</td> -->
       <td>2</td>
       <td>7</td>
       <td>0</td>
@@ -523,14 +566,14 @@
       <td>10</td>
       <td>5</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-default</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,1,4,0,1,7,1,13,0,13,0,2,0,0,0,0,0,0,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3</span></td>
-      <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rflybase" class="btn btn-primary btn-sm" role="button">rflybase</a></td>
-      <td>0.0-1</td>
+      <td><a href="https://github.com/ropensci/rflybase">rflybase </a>  <span class="ver">0.0-1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0-1</td> -->
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -538,14 +581,14 @@
       <td>2</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rgauges" class="btn btn-primary btn-sm" role="button">rgauges</a></td>
-      <td>0.2.0</td>
+      <td><a href="https://github.com/ropensci/rgauges">rgauges </a>  <span class="ver">0.2.0</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.2.0</td> -->
       <td>4</td>
       <td>7</td>
       <td>1</td>
@@ -553,14 +596,14 @@
       <td>5</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,2,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,2,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rgbif" class="btn btn-primary btn-sm" role="button">rgbif</a></td>
-      <td>0.7.0</td>
+      <td><a href="https://github.com/ropensci/rgbif">rgbif </a>  <span class="ver">0.7.0</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.7.0</td> -->
       <td>2</td>
       <td>30</td>
       <td>0</td>
@@ -568,14 +611,14 @@
       <td>24</td>
       <td>8</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,5,16,7,0,6,2,2,6,1,10,4,14,2,0,5,0,0,0,1,13,0,0,0,4,3,0,2,0,6,5,0,4,32,12,4,0,0,0,0,3,2,2,0,5,11,18,16,12,0,1</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,5,16,7,0,6,2,2,6,1,10,4,14,2,0,5,0,0,0,1,13,0,0,0,4,3,0,2,0,6,5,0,4,32,12,4,0,0,0,0,3,2,2,0,5,11,18,16,12,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rglobi" class="btn btn-primary btn-sm" role="button">rglobi</a></td>
-      <td>0.1</td>
+      <td><a href="https://github.com/ropensci/rglobi">rglobi </a>  <span class="ver">0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.1</td> -->
       <td>1</td>
       <td>5</td>
       <td>0</td>
@@ -583,14 +626,14 @@
       <td>2</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,0,0,0,10,26,9,6,6,1,0,0,0,0,0,0</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rhindawi" class="btn btn-primary btn-sm" role="button">rhindawi</a></td>
-      <td>0.0.1</td>
+      <td><a href="https://github.com/ropensci/rhindawi">rhindawi </a>  <span class="ver">0.0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.1</td> -->
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -598,14 +641,14 @@
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rImpactStory" class="btn btn-primary btn-sm" role="button">rImpactStory</a></td>
-      <td>0.07</td>
+      <td><a href="https://github.com/ropensci/rImpactStory">rImpactStory </a>  <span class="ver">0.07</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.07</td> -->
       <td>1</td>
       <td>4</td>
       <td>0</td>
@@ -613,14 +656,14 @@
       <td>5</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rinat" class="btn btn-primary btn-sm" role="button">rinat</a></td>
-      <td>0.1.4</td>
+      <td><a href="https://github.com/ropensci/rinat">rinat </a>  <span class="ver">0.1.4.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1.4.99</td> -->
       <td>1</td>
       <td>11</td>
       <td>1</td>
@@ -628,14 +671,14 @@
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>5,0,1,0,0,0,5,0,2,2,3,0,3,3,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,1,0,0,0,0,0,0,3,0,0,0,0,1,0,0,0,0,0,1</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>5,0,1,0,0,0,5,0,2,2,3,0,3,3,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,1,0,0,0,0,0,0,3,0,0,0,0,1,0,0,0,0,0,3</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/RMendeley" class="btn btn-primary btn-sm" role="button">RMendeley</a></td>
-      <td>1.2</td>
+      <td><a href="https://github.com/ropensci/RMendeley">RMendeley </a>  <span class="ver">1.2</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>1.2</td> -->
       <td>3</td>
       <td>15</td>
       <td>1</td>
@@ -643,44 +686,44 @@
       <td>30</td>
       <td>4</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rmetadata" class="btn btn-primary btn-sm" role="button">rmetadata</a></td>
-      <td>0.1.9</td>
-      <td>10</td>
+      <td><a href="https://github.com/ropensci/rmetadata">rmetadata </a>  <span class="ver">0.1.9</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.1.9</td> -->
+      <td>11</td>
       <td>8</td>
       <td>0</td>
       <td>1</td>
       <td>9</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,4,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/RNeXML" class="btn btn-primary btn-sm" role="button">RNeXML</a></td>
-      <td>1.1.3.99</td>
+      <td><a href="https://github.com/ropensci/RNeXML">RNeXML </a>  <span class="ver">1.1.3.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>1.1.3.99</td> -->
       <td>20</td>
       <td>30</td>
       <td>3</td>
       <td>7</td>
       <td>5</td>
-      <td>4</td>
+      <td>5</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,11,18,4,1,0,1,3,9,10,0,1,10,25,24,27,3,0,3,3,0,3,0,0,0,1,7,0,17,18,33,20,0,0,0,0,9,2,0,3,1,0,0,19,56,5,22,10,3,5,7,0</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,11,18,4,1,0,1,3,9,10,0,1,10,25,24,27,3,0,3,3,0,3,0,0,0,1,7,0,17,18,33,20,0,0,0,0,9,2,0,3,1,0,0,19,56,5,22,10,3,5,7,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rnoaa" class="btn btn-primary btn-sm" role="button">rnoaa</a></td>
-      <td>0.2.0.99</td>
+      <td><a href="https://github.com/ropensci/rnoaa">rnoaa </a>  <span class="ver">0.2.0.99</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.2.0.99</td> -->
       <td>11</td>
       <td>30</td>
       <td>1</td>
@@ -688,14 +731,14 @@
       <td>24</td>
       <td>5</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,2,0,2,0,1,3,4,1,0,4,7,23,1,0,0,0,0,0,0,0,0,0,0,4,15,6,14,0,0,1,0,0,11,4,19,1,0,1,0,0,0,7,10,2,31,0,0,1</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,2,0,2,0,1,3,4,1,0,4,7,23,1,0,0,0,0,0,0,0,0,0,0,4,15,6,14,0,0,1,0,0,11,4,19,1,0,1,0,0,0,7,10,2,31,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rnpn" class="btn btn-primary btn-sm" role="button">rnpn</a></td>
-      <td>0.0.6</td>
+      <td><a href="https://github.com/ropensci/rnpn">rnpn </a>  <span class="ver">0.0.6</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.6</td> -->
       <td>4</td>
       <td>7</td>
       <td>1</td>
@@ -703,14 +746,14 @@
       <td>5</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,4,0,0,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,4,0,0,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rotraits" class="btn btn-primary btn-sm" role="button">rotraits</a></td>
-      <td>0.0.1</td>
+      <td><a href="https://github.com/ropensci/rotraits">rotraits </a>  <span class="ver">0.0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.1</td> -->
       <td>6</td>
       <td>2</td>
       <td>0</td>
@@ -718,14 +761,14 @@
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,6,0,0,0,0,0,0,0,0,1,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,6,0,0,0,0,0,0,0,0,1,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rplos" class="btn btn-primary btn-sm" role="button">rplos</a></td>
-      <td>0.4.1</td>
+      <td><a href="https://github.com/ropensci/rplos">rplos </a>  <span class="ver">0.4.1</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.4.1</td> -->
       <td>3</td>
       <td>30</td>
       <td>1</td>
@@ -733,14 +776,14 @@
       <td>30</td>
       <td>30</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,7,2,2,0,2,1,0,7,3,1,8,3,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,2,1,0,0,2,18,0,0,0,0,0,0,5,0,0,4,0,0,1</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,7,2,2,0,2,1,0,7,3,1,8,3,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,2,1,0,0,2,18,0,0,0,0,0,0,5,0,0,4,0,0,1</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rsnps" class="btn btn-primary btn-sm" role="button">rsnps</a></td>
-      <td>0.1.2</td>
+      <td><a href="https://github.com/ropensci/rsnps">rsnps </a>  <span class="ver">0.1.2</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1.2</td> -->
       <td>1</td>
       <td>7</td>
       <td>0</td>
@@ -748,14 +791,14 @@
       <td>10</td>
       <td>4</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,4,0,3,0,0,5,7,0,1,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,1,0,0,0,3,0,0,0,0,0,0,0,0,1,0,0,0,0,3</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,4,0,3,0,0,5,7,0,1,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,1,0,0,0,3,0,0,0,0,0,0,0,0,1,0,0,0,0,3</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rspringer" class="btn btn-primary btn-sm" role="button">rspringer</a></td>
-      <td>0.0.1</td>
+      <td><a href="https://github.com/ropensci/rspringer">rspringer </a>  <span class="ver">0.0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.1</td> -->
       <td>2</td>
       <td>0</td>
       <td>0</td>
@@ -763,14 +806,14 @@
       <td>2</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rvertnet" class="btn btn-primary btn-sm" role="button">rvertnet</a></td>
-      <td>0.0-5</td>
+      <td><a href="https://github.com/ropensci/rvertnet">rvertnet </a>  <span class="ver">0.0-5</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.0-5</td> -->
       <td>3</td>
       <td>9</td>
       <td>0</td>
@@ -778,14 +821,14 @@
       <td>5</td>
       <td>2</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/rWBclimate" class="btn btn-primary btn-sm" role="button">rWBclimate</a></td>
-      <td>0.1.3</td>
+      <td><a href="https://github.com/ropensci/rWBclimate">rWBclimate </a>  <span class="ver">0.1.3</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.1.3</td> -->
       <td>4</td>
       <td>22</td>
       <td>1</td>
@@ -793,44 +836,44 @@
       <td>16</td>
       <td>3</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,1,3,2,0,0,0,1,1,0,0,1,3,0,2,0,0,1,0,0,0,0,2,0,0,0,8,3,2,7,1,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,1,3,2,0,0,0,1,1,0,0,1,3,0,2,0,0,1,0,0,0,0,2,0,0,0,8,3,2,7,1,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/solr" class="btn btn-primary btn-sm" role="button">solr</a></td>
-      <td>0.1.4</td>
-      <td>5</td>
+      <td><a href="https://github.com/ropensci/solr">solr </a>  <span class="ver">0.1.4</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.1.4</td> -->
+      <td>7</td>
       <td>24</td>
       <td>2</td>
       <td>1</td>
       <td>13</td>
       <td>4</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,10,5,1,2,7,1,1,9,5,0,0,0,0,1,11,0,0,0,1,0,0,0,0,0,4,3,0,1,0,0,0,0,0,0,0,0,2</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,10,5,1,2,7,1,1,9,5,0,0,0,0,1,11,0,0,0,1,0,0,0,0,0,4,3,0,1,0,0,0,0,0,0,0,0,2</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/spocc" class="btn btn-primary btn-sm" role="button">spocc</a></td>
-      <td>0.2.0.99</td>
-      <td>12</td>
+      <td><a href="https://github.com/ropensci/spocc">spocc </a>  <span class="ver">0.2.0.99</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.2.0.99</td> -->
+      <td>14</td>
       <td>30</td>
       <td>2</td>
       <td>4</td>
       <td>11</td>
       <td>6</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,3,1,0,0,0,2,2,1,0,10,1,1,4,7,6,0,0,0,0,0,22,26,13,14,19,1,10,5,2,3,0,2,8,2,15,3,0,0,8,1,3,0,5,5,0,0,0,7,15,3</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,3,1,0,0,0,2,2,1,0,10,1,1,4,7,6,0,0,0,0,0,22,26,13,14,19,1,10,5,2,3,0,2,8,2,15,3,0,0,8,1,3,0,5,5,0,0,0,7,15,8</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/taxize" class="btn btn-primary btn-sm" role="button">taxize</a></td>
-      <td>0.3.5.99</td>
+      <td><a href="https://github.com/ropensci/taxize">taxize </a>  <span class="ver">0.3.5.99</span> <span class="label label-default">cran</span> </td>
+      <!-- <td>0.3.5.99</td> -->
       <td>30</td>
       <td>30</td>
       <td>3</td>
@@ -838,14 +881,14 @@
       <td>30</td>
       <td>12</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,1,0,0,0,2,0,1,8,2,4,34,16,3,16,7,11,0,9,2,3,1,5,3,1,4,10,9,4,4,0,5,2,2,7,5,4,16,15,29,0,11,0,0,0,0,0,2,0,4,53,18</span></td>
       <td>0</td>
-      <td>TRUE</td>
-      <td>Nada</td>
+      <!-- <td>label label-default</td> -->
+      <td><span class='inlinesparkline'>0,1,0,0,0,2,0,1,8,2,4,34,16,3,16,7,11,0,9,2,3,1,5,3,1,4,10,9,4,4,0,5,2,2,7,5,4,16,15,29,0,11,0,0,0,0,0,2,0,4,53,18</span></td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/togeojson" class="btn btn-primary btn-sm" role="button">togeojson</a></td>
-      <td>0.0.5</td>
+      <td><a href="https://github.com/ropensci/togeojson">togeojson </a>  <span class="ver">0.0.5</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.5</td> -->
       <td>3</td>
       <td>0</td>
       <td>0</td>
@@ -853,14 +896,14 @@
       <td>12</td>
       <td>4</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,9,2,0,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/treeBASE" class="btn btn-primary btn-sm" role="button">treeBASE</a></td>
-      <td>0.0-7.1</td>
+      <td><a href="https://github.com/ropensci/treeBASE">treeBASE </a>  <span class="ver">0.0-7.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0-7.1</td> -->
       <td>3</td>
       <td>5</td>
       <td>0</td>
@@ -868,14 +911,14 @@
       <td>5</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <!-- <td>label label-success</td> -->
       <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1</span></td>
-      <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>-</td> -->
     </tr>
     <tr>
-      <td><a href="https://github.com/ropensci/ucipp" class="btn btn-primary btn-sm" role="button">ucipp</a></td>
-      <td>0.0.1</td>
+      <td><a href="https://github.com/ropensci/ucipp">ucipp </a>  <span class="ver">0.0.1</span> <span class="label label-success">cran</span> </td>
+      <!-- <td>0.0.1</td> -->
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -883,10 +926,10 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0</span></td>
       <td>0</td>
-      <td>FALSE</td>
-      <td>Nada</td>
+      <!-- <td>label label-success</td> -->
+      <td><span class='inlinesparkline'>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0</span></td>
+      <!-- <td>-</td> -->
     </tr>
   </tbody>
 </table>
