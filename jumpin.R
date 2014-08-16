@@ -143,9 +143,9 @@ for_each_pkg <- function(repo) {
     cm_spark <- cm$total
     ver <- gh_check_file(repo = repo)
     oncran <- check_cran(repo)
-    list(package = repo, ver = ver, iss_open = NROW(iss_o), iss_closed = NROW(iss_c), 
-        milestones = NROW(mile), contribs = NROW(contribs), stars = NROW(stars), 
-        forks = NROW(forks), prs = NROW(pr), sparkline = cm_spark, downloads = 0, 
+    list(package = repo, ver = ver, iss_open = nrow(iss_o), iss_closed = nrow(iss_c), 
+        milestones = nrow(mile), contribs = nrow(contribs), stars = nrow(stars), 
+        forks = nrow(forks), prs = nrow(pr), sparkline = cm_spark, downloads = 0, 
         cran = oncran, notes = "-")
 }
 ## Run this to generate data
