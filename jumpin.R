@@ -126,7 +126,7 @@ check_cran <- function(pkg){
     tmp <- data.frame(available.packages(), stringsAsFactors = FALSE)
     saveRDS(tmp, "availpkgs.rds")
   }
-  pkg %in% out$Package
+  ifelse(pkg %in% out$Package, 'label label-default', 'label label-success')
 }
 
 for_each_pkg <- function(repo){
@@ -160,7 +160,7 @@ for_each_pkg <- function(repo){
 
   list(package=repo, ver=ver, iss_open=NROW(iss_o), iss_closed=NROW(iss_c),
        milestones=NROW(mile), contribs=NROW(contribs), stars=NROW(stars), forks=NROW(forks),
-       prs=NROW(pr), sparkline=cm_spark, downloads=0, cran=oncran, notes='Nada')
+       prs=NROW(pr), sparkline=cm_spark, downloads=0, cran=oncran, notes='-')
 }
 
 
