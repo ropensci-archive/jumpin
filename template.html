@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <title>rOpenSci package status page</title>
   <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
   <script type='text/javascript' src='js/jquery.sparkline.min.js'></script>
   <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href="css/bootstrap-sortable.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/octicons.css">
   <style>
-  body, p, th, td {
-    font-family: 'Source Code Pro', ;
+.label {
+  font-variant: small-caps;
+}
+.ver {
+  color: #ccc;
+}
+.mouse td, th {
+    font-family: 'Source Code Pro';
   }
+ .mouse th {
+  font-style: bold;
+ } 
+
+a.tooltip {outline:none; }
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {
+    z-index:10;display:none; padding:14px 20px;
+    margin-top:-30px; margin-left:28px;
+    width:240px; line-height:16px;
+}
+a.tooltip:hover span{
+    display:inline; position:absolute; color:#111;
+    border:1px solid #DCA; background:#fffAF0;}
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
+    
+/*CSS3 extras*/
+a.tooltip span
+{
+    border-radius:4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+        
+    -moz-box-shadow: 5px 5px 8px #CCC;
+    -webkit-box-shadow: 5px 5px 8px #CCC;
+    box-shadow: 5px 5px 8px #CCC;
+}
   </style>
   
   <script type='text/javascript'>
@@ -20,28 +56,28 @@
 </head>
 
 <body>
-<table class='table table-striped table-responsive sortable'>
+<table class='table table-striped table-responsive sortable mouse'>
   <thead>
     <tr>
       <th>Package</th>
       <!-- <th>Ver (GH)</th> -->
-      <th>Open issues</th>
-      <th>Closed issues</th>
-      <th>Milestones</th>
-      <th>Contribs</th>
-      <th>Stars</th>
-      <th>Forks</th>
-      <th>PR's</th>
-      <th data-sortable='false'>Commits (52wk)</th>
-      <th>Downloads</th>
-      <th>On CRAN?</th>
-      <th data-sortable='false'>Notes</th>
+      <th><span class="octicon octicon-issue-opened"></span></th>
+      <th><span class="octicon octicon-issue-closed"></span></th>
+      <th><span class="octicon octicon-milestone"></span></th>
+      <th><span class="octicon octicon-organization"></span></th>
+      <th><span class="octicon octicon-star"></span></th>
+      <th><span class="octicon octicon-repo-forked"></span></th>
+      <th><span class="octicon octicon-git-pull-request"></span></th>
+      <th><span class="octicon octicon-cloud-download"></span></th>
+      <!-- <th>CRAN status</th> -->
+      <th data-sortable='false'><span class="octicon octicon-pulse"></span> (52wk)</th>
+      <!-- <th data-sortable='false'><span class="octicon octicon-comment"></span></th> -->
     </tr>
   </thead>
   <tbody>
     {{#out}}
     <tr>
-      <td><a href="https://github.com/ropensci/{{package}}" class="btn btn-primary btn-sm" role="button">{{package}}, {{ver}}</a></td>
+      <td><a href="https://github.com/ropensci/{{package}}">{{package}} </a>  <span class="ver">{{ver}}</span> <span class="{{cran}}">cran</span> </td>
       <!-- <td>{{ver}}</td> -->
       <td>{{iss_open}}</td>
       <td>{{iss_closed}}</td>
@@ -50,10 +86,10 @@
       <td>{{stars}}</td>
       <td>{{forks}}</td>
       <td>{{prs}}</td>
-      <td><span class='inlinesparkline'>{{sparkline}}</span></td>
       <td>{{downloads}}</td>
-      <td>{{cran}}</td>
-      <td>{{notes}}</td>
+      <!-- <td>{{cran}}</td> -->
+      <td><span class='inlinesparkline'>{{sparkline}}</span></td>
+      <!-- <td>{{notes}}</td> -->
     </tr>
     {{/out}}
   </tbody>
