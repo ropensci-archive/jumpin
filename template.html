@@ -8,6 +8,7 @@
   <link rel='stylesheet' href="css/bootstrap-sortable.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="style/octicons.css">
+  <link rel="stylesheet" href="style/hint.min.css">
   <style>
 .label {
   font-variant: small-caps;
@@ -61,16 +62,16 @@ a.tooltip span
     <tr>
       <th>Package</th>
       <!-- <th>Ver (GH)</th> -->
-      <th><span class="octicon octicon-issue-opened"></span></th>
-      <th><span class="octicon octicon-issue-closed"></span></th>
-      <th><span class="octicon octicon-milestone"></span></th>
-      <th><span class="octicon octicon-organization"></span></th>
-      <th><span class="octicon octicon-star"></span></th>
-      <th><span class="octicon octicon-repo-forked"></span></th>
-      <th><span class="octicon octicon-git-pull-request"></span></th>
-      <th><span class="octicon octicon-cloud-download"></span></th>
+      <th><span class="hint--bottom" data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Closed Issues"><span class="octicon octicon-issue-closed"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Milestones"><span class="octicon octicon-milestone"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Contributors"><span class="octicon octicon-organization"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Stars"><span class="octicon octicon-star"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Forks"><span class="octicon octicon-repo-forked"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Pull Requests"><span class="octicon octicon-git-pull-request"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Downloads from GitHub"><span class="octicon octicon-cloud-download"></span></span></th>
       <!-- <th>CRAN status</th> -->
-      <th data-sortable='false'><span class="octicon octicon-pulse"></span> (52wk)</th>
+      <th data-sortable='false'><span class="hint--bottom" data-hint="52 week activity report"><span class="octicon octicon-pulse"></span> (52wk)</span></th>
       <!-- <th data-sortable='false'><span class="octicon octicon-comment"></span></th> -->
     </tr>
   </thead>
