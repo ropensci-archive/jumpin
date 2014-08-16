@@ -1,3 +1,4 @@
 .DS_Store
 .httr-oauth
 kr_auth.R
+.Rapp.history
