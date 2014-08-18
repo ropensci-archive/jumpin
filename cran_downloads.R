@@ -38,7 +38,7 @@ package <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengin
     "rgauges", "rgbif", "rglobi", "rhindawi", "rImpactStory", "rinat", "RMendeley", 
     "rmetadata", "RNeXML", "rnoaa", "rnpn", "rotraits", "rplos", "rsnps", "rspringer", 
     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
-    "ucipp", "testdat", "git2r")
+    "ucipp", "testdat", "git2r", "EML")
 package <- data.table(data.frame(package = sort(package)))
 
 setkey(package, "package")

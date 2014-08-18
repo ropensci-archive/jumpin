@@ -15,7 +15,7 @@ pkgs <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine",
     "rgauges", "rgbif", "rglobi", "rhindawi", "rImpactStory", "rinat", "RMendeley", 
     "rmetadata", "RNeXML", "rnoaa", "rnpn", "rotraits", "rplos", "rsnps", "rspringer", 
     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
-    "ucipp", "testdat", "git2r")
+    "ucipp", "testdat", "git2r", "EML")
 pkgs <- sort(pkgs)
 
 
@@ -27,12 +27,17 @@ myapp <- oauth_app(getOption("gh_appname"), getOption("gh_id"), getOption("gh_se
 token <- github_token <- oauth2.0_token(oauth_endpoints("github"), myapp) 
 
 github_stats <- function(repo) {
+
 	repo_url <- paste0("https://api.github.com/repos/ropensci/", repo)
 	data <- GET(repo_url, config = c(token = token))
 	results <- content(data, "parsed")
 	dl <- content(GET(results$downloads_url, config = c(token = token)), "parsed")
 	downloads <- ifelse(length(dl) == 0, 0, length(dl))
-	collaborators <- length(content(GET(results$contributors_url, config = c(token = token)), "parsed"))
+	collab <- content(GET(results$contributors_url, config = c(token = token)), "parsed")
+	collaborators <- length(collab)
+	cnames <- lapply(collab, "[", "login")
+	cnames <- sapply(cnames, unname)
+	collaborator_names <- as.character(paste(cnames, collapse = ", "))
 	prs <- length(content(GET(paste0(repo_url, "/pulls"), config = c(token = token)), "parsed"))
 	# Didn't add closed issues or version number since neither make sense as a reason for someone to jump in
 	commits_raw <- GET(paste0(repo_url, "/stats/commit_activity"), config = c(token = token))
@@ -54,6 +59,7 @@ github_stats <- function(repo) {
 		pull_requests = prs,
 		cran = cran,
 		collaborators = collaborators,
+		collaborator_names = collaborator_names,
 		milestones = milestones,
 		watchers = results$subscribers_count,
 		open_issues = results$open_issues_count,
