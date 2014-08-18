@@ -38,8 +38,8 @@
       <th>Package</th>
       <!-- <th>Ver (GH)</th> -->
       <th><span class="hint--bottom" data-hint="Last activity"><span class="octicon octicon-calendar"></span></span></th>
-       <th><span class="hint--bottom" data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
-      <th><span class="hint--bottom" data-hint="Closed Issues"><span class="octicon octicon-issue-closed"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
+<!--       <th><span class="hint--bottom" data-hint="Closed Issues"><span class="octicon octicon-issue-closed"></span></span></th> -->
       <th><span class="hint--bottom" data-hint="Milestones"><span class="octicon octicon-milestone"></span></span></th>
       <th><span class="hint--bottom" data-hint="Contributors"><span class="octicon octicon-organization"></span></span></th>
       <th><span class="hint--bottom" data-hint="Stars"><span class="octicon octicon-star"></span></span></th>
@@ -54,11 +54,11 @@
   <tbody>
     {{#out}}
     <tr>
-      <td><a href="https://github.com/ropensci/{{package}}"><span class="hint--bottom" data-hint="{{desc}}">{{package}}</span></a>  <span class="ver">{{ver}}</span> <span class="{{cran}}">cran</span> </td>
+      <td><a href="https://github.com/ropensci/{{package}}"><span class="hint--bottom" data-hint="{{desc}}">{{package}}</span></a>  <!-- <span class="ver">{{ver}}</span> --> <span class="{{cran}}">cran</span> </td>
       <td>{{updated}}</td>
       <!-- <td>{{ver}}</td> -->
       <td><a href="https://github.com/ropensci/{{package}}/issues/">{{open_issues}}</a></td>
-      <td><a href="https://github.com/ropensci/{{package}}/issues?q=is%3Aissue+is%3Aclosed">{{closed_issues}}</a></td>
+<!--       <td><a href="https://github.com/ropensci/{{package}}/issues?q=is%3Aissue+is%3Aclosed">{{closed_issues}}</a></td> -->
       <td><a href="https://github.com/ropensci/{{package}}/milestones/">{{milestones}}</a></td>
       <td><a href="https://github.com/ropensci/{{package}}/network/members/">{{collaborators}}</a></td>
       <td><a href="https://github.com/ropensci/{{package}}/stargazers">{{stars}}</a></td>
