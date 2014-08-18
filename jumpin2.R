@@ -2,7 +2,7 @@ library("devtools")
 library("httr")
 library("whisker")
 library("yaml")
-
+library("lubridate")
 
 ## List of rOpenSci packages
 pkgs <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine", 
@@ -36,12 +36,15 @@ github_stats <- function(repo) {
 	commits_raw <- GET(paste0(repo_url, "/stats/commit_activity"), config = c(token = token))
 	commits <- jsonlite::fromJSON(content(commits_raw, "text"), flatten = TRUE)$total
 
+	date <- gsub("T", " ",  results$pushed_at)
+	date <- gsub("Z", " UTC", date)
+
 	cran_return <- GET(paste0("http://cran.r-project.org/web/packages/", repo, "/index.html"))$status
 	cran <- ifelse(cran_return == 200, "label label-success", "label label-default")
 	milestones <- length(content(GET(paste0(repo_url, "/milestones"), config = c(token = token)), "parsed"))
 	list(package = results$name, 
 		desc = results$description, 
-		updated = results$updated_at, 
+		updated = date, 
 		forks = results$forks,
 		stars = results$stargazers_count,
 		downloads = downloads, 
@@ -57,7 +60,7 @@ github_stats <- function(repo) {
 
 message("Now querying results \n")
 results <- lapply(pkgs, github_stats)
-
+last_generated <- now("UTC")
 out <- results
 message("writing out html \n")
 html <- whisker.render(readLines("template2.html"))

@@ -16,7 +16,7 @@
 .ver {
   color: #ccc;
 }
-.mouse td, th {
+.mouse td, th, p {
     font-family: 'Source Code Pro';
   }
  .mouse th {
@@ -37,7 +37,8 @@
     <tr>
       <th>Package</th>
       <!-- <th>Ver (GH)</th> -->
-      <th><span class="hint--bottom" data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
+      <th><span class="hint--bottom" data-hint="Last activity"><span class="octicon octicon-calendar"></span></span></th>
+       <th><span class="hint--bottom" data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
       <th><span class="hint--bottom" data-hint="Closed Issues"><span class="octicon octicon-issue-closed"></span></span></th>
       <th><span class="hint--bottom" data-hint="Milestones"><span class="octicon octicon-milestone"></span></span></th>
       <th><span class="hint--bottom" data-hint="Contributors"><span class="octicon octicon-organization"></span></span></th>
@@ -54,13 +55,14 @@
     {{#out}}
     <tr>
       <td><a href="https://github.com/ropensci/{{package}}"><span class="hint--bottom" data-hint="{{desc}}">{{package}}</span></a>  <span class="ver">{{ver}}</span> <span class="{{cran}}">cran</span> </td>
+      <td>{{updated}}</td>
       <!-- <td>{{ver}}</td> -->
       <td><a href="https://github.com/ropensci/{{package}}/issues/">{{open_issues}}</a></td>
       <td><a href="https://github.com/ropensci/{{package}}/issues?q=is%3Aissue+is%3Aclosed">{{closed_issues}}</a></td>
       <td><a href="https://github.com/ropensci/{{package}}/milestones/">{{milestones}}</a></td>
-      <td>{{collaborators}}</td>
-      <td>{{stars}}</td>
-      <td>{{forks}}</td>
+      <td><a href="https://github.com/ropensci/{{package}}/network/members/">{{collaborators}}</a></td>
+      <td><a href="https://github.com/ropensci/{{package}}/stargazers">{{stars}}</a></td>
+      <td><a href="https://github.com/ropensci/{{package}}/network">{{forks}}</a></td>
       <td><a href="https://github.com/ropensci/{{package}}/pulls/">{{pull_requests}}</a></td>
       <td>{{downloads}}</td>
       <!-- <td>{{cran}}</td> -->
@@ -70,6 +72,12 @@
     {{/out}}
   </tbody>
 </table>
+
+
+{{#last_generated}}
+<p>Page was last generated at {{last_generated}} UTC</p>
+{{/last_generated}}
+
 
 <script type='text/javascript' src='js/bootstrap-sortable.js'></script>
 <script type='text/javascript' src='js/moment.min.js'></script>
