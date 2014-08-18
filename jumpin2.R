@@ -31,8 +31,7 @@ github_stats <- function(repo) {
 	downloads <- ifelse(length(dl) == 0, 0, length(dl))
 	collaborators <- length(content(GET(results$contributors_url, config = c(token = token)), "parsed"))
 	prs <- length(content(GET(paste0(repo_url, "/pulls"), config = c(token = token)), "parsed"))
-	# Missing closed issues for now, but will add soon
-	# Also missing version numbers
+	# Didn't add closed issues or version number since neither make sense as a reason for someone to jump in
 	commits_raw <- GET(paste0(repo_url, "/stats/commit_activity"), config = c(token = token))
 	commits <- jsonlite::fromJSON(content(commits_raw, "text"), flatten = TRUE)$total
 
@@ -54,7 +53,6 @@ github_stats <- function(repo) {
 		milestones = milestones,
 		watchers = results$subscribers_count,
 		open_issues = results$open_issues_count,
-		closed_issues = 0, # haven't done it yet
 		sparkline = commits)
 }
 
