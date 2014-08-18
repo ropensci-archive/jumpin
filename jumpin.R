@@ -13,6 +13,8 @@ pkgs <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine",
     "rmetadata", "RNeXML", "rnoaa", "rnpn", "rotraits", "rplos", "rsnps", "rspringer", 
     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
     "ucipp", "testdat", "git2r")
+pkgs <- sort(pkgs)
+
 ## Functions
 github_auth <- function(appname = getOption("gh_appname"), key = getOption("gh_id"), 
     secret = getOption("gh_secret")) {
@@ -62,7 +64,7 @@ ct <- function(l) Filter(Negate(is.null), l)
 # gh_stars('ropensci', 'taxize')
 gh_stars <- function(owner = "ropensci", repo, ...) {
     token <- github_auth()
-    req <- GET(make_url(owner, repo, "stargazers"), config = c(token = token, ...))
+    req <- GET(make_url(owner, repo, "stargazers"), config = c(token = token))
     process_result(req)
 }
 # gh_milestones('ropensci', 'taxize')
