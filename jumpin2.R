@@ -20,7 +20,6 @@ pkgs <- sort(pkgs)
 
 
 # setwd("~/Github/ropensci/jumpin")
-# oauth_endpoints("github")
 # Create a new app, set Authorization callback URL = http://localhost:1410
 # Then copy the keys into your .rprofile with the names below
 myapp <- oauth_app(getOption("gh_appname"), getOption("gh_id"), getOption("gh_secret"))
