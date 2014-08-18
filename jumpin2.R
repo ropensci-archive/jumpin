@@ -49,6 +49,12 @@ github_stats <- function(repo) {
 	cran_return <- GET(paste0("http://cran.r-project.org/web/packages/", repo, "/index.html"))$status
 	cran <- ifelse(cran_return == 200, "label label-success", "label label-default")
 	milestones <- length(content(GET(paste0(repo_url, "/milestones"), config = c(token = token)), "parsed"))
+	milestones_closed <- length(content(GET(paste0(repo_url, "/milestones"), query = list(state = "closed"), config = c(token = token)), "parsed"))
+
+	total_milestones <- milestones + milestones_closed
+	tm <- as.character(paste0(milestones, "/", total_milestones))
+	mile_ratio <- ifelse(milestones == 0, "-", scales::percent(milestones/total_milestones))
+
 	list(package = results$name, 
 		desc = results$description, 
 		updated = date, 
@@ -60,7 +66,8 @@ github_stats <- function(repo) {
 		cran = cran,
 		collaborators = collaborators,
 		collaborator_names = collaborator_names,
-		milestones = milestones,
+		milestones = mile_ratio,
+		total_milestones = tm,
 		watchers = results$subscribers_count,
 		open_issues = results$open_issues_count,
 		sparkline = commits)
@@ -74,4 +81,6 @@ message("writing out html \n")
 html <- whisker.render(readLines("template2.html"))
 write(html, "index.html")
 browseURL("index.html") 
+
+
 

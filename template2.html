@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="style/octicons.css">
   <link rel="stylesheet" href="style/hint.min.css">
+
   <style>
 .label {
   font-variant: small-caps;
@@ -22,6 +23,7 @@
  .mouse th {
   font-style: bold;
  } 
+
 </style>
   
   <script type='text/javascript'>
@@ -37,30 +39,25 @@
     <tr>
       <th>Package</th>
       <!-- <th>Ver (GH)</th> -->
-      <th><span class="hint--bottom" data-hint="Last activity"><span class="octicon octicon-calendar"></span></span></th>
-      <th><span class="hint--bottom" data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
-<!--       <th><span class="hint--bottom" data-hint="Closed Issues"><span class="octicon octicon-issue-closed"></span></span></th> -->
-      <th><span class="hint--bottom" data-hint="Milestones"><span class="octicon octicon-milestone"></span></span></th>
-      <th><span class="hint--bottom" data-hint="Contributors"><span class="octicon octicon-organization"></span></span></th>
-      <th><span class="hint--bottom" data-hint="Stars"><span class="octicon octicon-star"></span></span></th>
-      <th><span class="hint--bottom" data-hint="Forks"><span class="octicon octicon-repo-forked"></span></span></th>
-      <th><span class="hint--bottom" data-hint="Pull Requests"><span class="octicon octicon-git-pull-request"></span></span></th>
-      <th><span class="hint--bottom" data-hint="Downloads from CRAN since 2012"><span class="octicon octicon-cloud-download"></span></span></th>
-      <!-- <th>CRAN status</th> -->
+      <th><span class="hint--bottom hint--rounded " data-hint="Last activity"><span class="octicon octicon-calendar"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Milestone progress"><span class="octicon octicon-milestone"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Contributors"><span class="octicon octicon-organization"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Stars"><span class="octicon octicon-star"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Forks"><span class="octicon octicon-repo-forked"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Pull Requests"><span class="octicon octicon-git-pull-request"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Downloads from CRAN since 2012"><span class="octicon octicon-cloud-download"></span></span></th>
       <th data-sortable='false'><span class="hint--bottom" data-hint="52 week activity report"><span class="octicon octicon-pulse"></span> (52wk)</span></th>
-      <!-- <th data-sortable='false'><span class="octicon octicon-comment"></span></th> -->
     </tr>
   </thead>
   <tbody>
     {{#out}}
     <tr>
-      <td><a href="https://github.com/ropensci/{{package}}"><span class="hint--bottom" data-hint="{{desc}}">{{package}}</span></a>  <!-- <span class="ver">{{ver}}</span> --> <span class="{{cran}}">cran</span> </td>
+      <td><a href="https://github.com/ropensci/{{package}}"><span class="hint--bottom hint--rounded hint--bounce" data-hint="{{desc}}">{{package}}</span></a>  <span class="{{cran}}">cran</span> </td>
       <td>{{updated}}</td>
-      <!-- <td>{{ver}}</td> -->
       <td><a href="https://github.com/ropensci/{{package}}/issues/">{{open_issues}}</a></td>
-<!--       <td><a href="https://github.com/ropensci/{{package}}/issues?q=is%3Aissue+is%3Aclosed">{{closed_issues}}</a></td> -->
-      <td><a href="https://github.com/ropensci/{{package}}/milestones/">{{milestones}}</a></td>
-      <td><span class="hint--bottom" data-hint="{{collaborator_names}}"><a href="https://github.com/ropensci/{{package}}/network/members/">{{collaborators}}</a></span></td>
+      <td><span class="hint--bottom hint--rounded " data-hint="{{total_milestones}}"><a href="https://github.com/ropensci/{{package}}/milestones/">{{milestones}}</a></span></td>
+      <td><span class="hint--left hint--rounded " data-hint="{{collaborator_names}}"><a href="https://github.com/ropensci/{{package}}/network/members/">{{collaborators}}</a></span></td>
       <td><a href="https://github.com/ropensci/{{package}}/stargazers">{{stars}}</a></td>
       <td><a href="https://github.com/ropensci/{{package}}/network">{{forks}}</a></td>
       <td><a href="https://github.com/ropensci/{{package}}/pulls/">{{pull_requests}}</a></td>
@@ -78,7 +75,7 @@
 <p>Page was last generated at {{last_generated}} UTC</p>
 {{/last_generated}}
 
-
+</script>
 <script type='text/javascript' src='js/bootstrap-sortable.js'></script>
 <script type='text/javascript' src='js/moment.min.js'></script>
 
