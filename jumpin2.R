@@ -2,8 +2,6 @@ library("devtools")
 library("httr")
 library("whisker")
 library("yaml")
-library("jsonlite")
-
 
 
 ## List of rOpenSci packages
@@ -36,7 +34,7 @@ github_stats <- function(repo) {
 	# Missing closed issues for now, but will add soon
 	# Also missing version numbers
 	commits_raw <- GET(paste0(repo_url, "/stats/commit_activity"), config = c(token = token))
-	commits <- fromJSON(content(commits_raw, "text"), flatten = TRUE)$total
+	commits <- jsonlite::fromJSON(content(commits_raw, "text"), flatten = TRUE)$total
 
 	cran_return <- GET(paste0("http://cran.r-project.org/web/packages/", repo, "/index.html"))$status
 	cran <- ifelse(cran_return == 200, "label label-success", "label label-default")
@@ -52,7 +50,7 @@ github_stats <- function(repo) {
 		collaborators = collaborators,
 		milestones = milestones,
 		watchers = results$subscribers_count,
-		open_issues = results$open_issues_count
+		open_issues = results$open_issues_count,
 		closed_issues = 0, # haven't done it yet
 		sparkline = commits)
 }
@@ -60,8 +58,8 @@ github_stats <- function(repo) {
 message("Now querying results \n")
 results <- lapply(pkgs, github_stats)
 
-# message("writing out html \n")
-# html <- whisker.render(readLines("template2.html"))
-# write(html, "index_new.html")
-# browseURL("index_new.html") 
+message("writing out html \n")
+html <- whisker.render(readLines("template2.html"))
+write(html, "index_new.html")
+browseURL("index_new.html") 
 
