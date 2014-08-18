@@ -3,7 +3,7 @@ library("httr")
 library("whisker")
 library("yaml")
 library("jsonlite")
-source("misc.R")
+
 
 
 ## List of rOpenSci packages
