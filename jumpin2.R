@@ -3,7 +3,9 @@ library("httr")
 library("whisker")
 library("yaml")
 library("lubridate")
-
+# This file has the CRAN downloads for the packages below.
+# To update, run cran_downloads.R (this will take a while the first time)
+load('cran_downloads.rda')
 ## List of rOpenSci packages
 pkgs <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine", 
     "ecoretriever", "elastic", "elife", "floras", "fulltext", "geonames", "gistr", 
@@ -15,6 +17,7 @@ pkgs <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine",
     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
     "ucipp", "testdat", "git2r")
 pkgs <- sort(pkgs)
+
 
 
 # setwd("~/Github/ropensci/jumpin")
@@ -46,7 +49,8 @@ github_stats <- function(repo) {
 		updated = date, 
 		forks = results$forks,
 		stars = results$stargazers_count,
-		downloads = downloads, 
+		downloads = downloads,
+		cran_downloads = cran_downloads[[repo]], 
 		pull_requests = prs,
 		cran = cran,
 		collaborators = collaborators,
