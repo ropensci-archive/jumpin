@@ -58,8 +58,9 @@ github_stats <- function(repo) {
 message("Now querying results \n")
 results <- lapply(pkgs, github_stats)
 
+out <- results
 message("writing out html \n")
 html <- whisker.render(readLines("template2.html"))
-write(html, "index_new.html")
-browseURL("index_new.html") 
+write(html, "index.html")
+browseURL("index.html") 
 
