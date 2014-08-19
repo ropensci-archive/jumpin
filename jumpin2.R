@@ -5,22 +5,12 @@ library("yaml")
 library("lubridate")
 # This file has the CRAN downloads for the packages below.
 # To update, run cran_downloads.R (this will take a while the first time)
-load('cran_downloads.rda')
+load('local_data/cran_downloads.rda')
 ## List of rOpenSci packages
-pkgs <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine", 
-    "ecoretriever", "elastic", "elife", "floras", "fulltext", "geonames", "gistr", 
-    "jekyll-knitr", "knitr-ruby", "mocker", "neotoma", "plotly", "rAltmetric", "rAvis", 
-    "rbhl", "rbison", "rcrossref", "rdatacite", "rdryad", "rebird", "rentrez", "reol", 
-    "reproducibility-guide", "rfigshare", "rfishbase", "rfisheries", "rflybase", 
-    "rgauges", "rgbif", "rglobi", "rhindawi", "rImpactStory", "rinat", "RMendeley", 
-    "rmetadata", "RNeXML", "rnoaa", "rnpn", "rotraits", "rplos", "rsnps", "rspringer", 
-    "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
-    "ucipp", "testdat", "git2r", "EML")
+pkgs <- package
 pkgs <- sort(pkgs)
 
 
-
-# setwd("~/Github/ropensci/jumpin")
 # Create a new app, set Authorization callback URL = http://localhost:1410
 # Then copy the keys into your .rprofile with the names below
 myapp <- oauth_app(getOption("gh_appname"), getOption("gh_id"), getOption("gh_secret"))
@@ -73,7 +63,7 @@ github_stats <- function(repo) {
 		sparkline = commits)
 }
 
-message("Now querying results \n")
+message("Now querying the GitHub API \n")
 results <- lapply(pkgs, github_stats)
 last_generated <- now("UTC")
 out <- results
