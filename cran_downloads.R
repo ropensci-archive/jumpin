@@ -9,12 +9,13 @@ urls <- paste0('http://cran-logs.rstudio.com/', year, '/', all_days, '.csv.gz')
  
 # only download the files you don't have:
 missing_days <- setdiff(as.character(all_days), tools::file_path_sans_ext(dir("CRANlogs"), TRUE))
-  
+ 
+if(length(missing_days) > 0) {
 for (i in 1:length(missing_days)) {
   print(paste0(i, "/", length(missing_days)))
   download.file(urls[i], paste0('CRANlogs/', missing_days[i], '.csv.gz'))
 }
-
+}
 
 file_list <- list.files("CRANlogs", full.names = TRUE)
 
@@ -28,7 +29,7 @@ for (file in file_list) {
 library(data.table)
 downloads <- rbindlist(logs)
 dl <- downloads[ , length(unique(ip_id)), by = 'package']
-rm(downloads) # purge the large file
+rm(downloads) # purge the large object
 
 package <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine", 
     "ecoretriever", "elastic", "elife", "floras", "fulltext", "geonames", "gistr", 
