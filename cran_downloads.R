@@ -1,5 +1,7 @@
 
 library(data.table)
+start <- settings[[1]]
+rebuild_index <- settings[[2]]
 
 # Download all logs from start until now into this folder (actually a subfolder)
 if(rebuild_index) {
@@ -33,11 +35,12 @@ for (file in file_list) {
 }
 downloads <- rbindlist(logs)
 dl <- downloads[ , length(unique(ip_id)), by = 'package']
+save(dl, file = 'local_data/dl.rda')
 rm(downloads)
 # If not rebuilding, just load existing index 
 # and append data
 } else { 
-load('local_data/short_list.rda')  
+load('local_data/dl.rda')  
 if(length(missing_days) > 0) {
     message(sprintf("Building %s new logs", length(missing_days)))
     updated_logs <- list() 
