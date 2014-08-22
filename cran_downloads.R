@@ -1,4 +1,4 @@
-
+load('local_data/settings.rda')
 library(data.table)
 start <- settings[[1]]
 rebuild_index <- settings[[2]]
