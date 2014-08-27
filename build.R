@@ -4,11 +4,11 @@ load('local_data/settings.rda')
 
 package <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine", 
     "ecoretriever", "elastic", "elife", "floras", "fulltext", "geonames", "gistr", 
-    "jekyll-knitr", "knitr-ruby", "mocker", "neotoma", "plotly", "rAltmetric", "rAvis", 
+    "jekyll-knitr", "mocker", "neotoma", "plotly", "rAltmetric", "rAvis", 
     "rbhl", "rbison", "rcrossref", "rdatacite", "rdryad", "rebird", "rentrez", "reol", 
     "reproducibility-guide", "rfigshare", "rfishbase", "rfisheries", "rflybase", 
     "rgauges", "rgbif", "rglobi", "rhindawi", "rImpactStory", "rinat", "RMendeley", 
-    "rmetadata", "RNeXML", "rnoaa", "rnpn", "rotraits", "rplos", "rsnps", "rspringer", 
+    "rmetadata", "RNeXML", "rnoaa", "rnpn", "traits", "rplos", "rsnps", "rspringer", 
     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
     "ucipp", "testdat", "git2r", "EML")
 
