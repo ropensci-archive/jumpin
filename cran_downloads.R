@@ -44,9 +44,9 @@ load('local_data/dl.rda')
 if(length(missing_days) > 0) {
     message(sprintf("Building %s new logs", length(missing_days)))
     updated_logs <- list() 
-    for(i in 1:length(missing_days)) {
+    for(i in missing_days) {
       file <- paste0("CRANlogs/", missing_days[i], ".csv.gz")
-      updated_logs[i] <- read.table(file, header = TRUE, sep = ",", quote = "\"",
+      updated_logs[[i]] <- read.table(file, header = TRUE, sep = ",", quote = "\"",
              dec = ".", fill = TRUE, comment.char = "", as.is = TRUE)
     }
     updated_downloads <- rbindlist(updated_logs)
