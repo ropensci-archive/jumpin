@@ -2,7 +2,7 @@ library("devtools")
 library("httr")
 library("whisker")
 library("yaml")
-library("lubridate")
+suppressPackageStartupMessages(library("lubridate"))
 # This file has the CRAN downloads for the packages below.
 # To update, run cran_downloads.R (this will take a while the first time)
 load('local_data/cran_downloads.rda')
@@ -17,9 +17,10 @@ myapp <- oauth_app(getOption("gh_appname"), getOption("gh_id"), getOption("gh_se
 token <- github_token <- oauth2.0_token(oauth_endpoints("github"), myapp) 
 
 github_stats <- function(repo) {
-
+	message(sprintf("Now working on %s", repo))
 	repo_url <- paste0("https://api.github.com/repos/ropensci/", repo)
 	data <- GET(repo_url, config = c(token = token))
+	if(data$status != 404) {
 	results <- content(data, "parsed")
 	dl <- content(GET(results$downloads_url, config = c(token = token)), "parsed")
 	downloads <- ifelse(length(dl) == 0, 0, length(dl))
@@ -61,6 +62,7 @@ github_stats <- function(repo) {
 		watchers = results$subscribers_count,
 		open_issues = results$open_issues_count,
 		sparkline = commits)
+ } # end the 404
 }
 
 message("Now querying the GitHub API \n")
