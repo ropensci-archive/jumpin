@@ -1,7 +1,7 @@
 RDA2
 A
 2
-196864
+196865
 131840
 1026
 1
@@ -9,7 +9,7 @@ A
 14
 cran_downloads
 531
-60
+59
 13
 1
 1546
@@ -52,9 +52,6 @@ cran_downloads
 13
 1
 3104
-13
-1
-0
 13
 1
 0
@@ -153,9 +150,6 @@ cran_downloads
 0
 13
 1
-0
-13
-1
 2293
 13
 1
@@ -190,13 +184,16 @@ cran_downloads
 13
 1
 0
+13
+1
+0
 1026
 1
 262153
 5
 names
 16
-60
+59
 262153
 3
 alm
@@ -248,9 +245,6 @@ git2r
 262153
 12
 jekyll-knitr
-262153
-10
-knitr-ruby
 262153
 6
 mocker
@@ -339,9 +333,6 @@ rnoaa
 4
 rnpn
 262153
-8
-rotraits
-262153
 5
 rplos
 262153
@@ -371,6 +362,9 @@ testdat
 262153
 9
 togeojson
+262153
+6
+traits
 262153
 8
 treeBASE
