@@ -10,7 +10,7 @@ package <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengin
     "rgauges", "rgbif", "rglobi", "rhindawi", "rImpactStory", "rinat", "RMendeley", 
     "rmetadata", "RNeXML", "rnoaa", "rnpn", "traits", "rplos", "rsnps", "rspringer", 
     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
-    "ucipp", "testdat", "git2r", "EML")
+    "ucipp", "testdat", "git2r", "rdat", "EML")
 
 # IF YOU UPDATE THE LIST ABOVE, uncomment the line below
 # rebuild_index = TRUE
