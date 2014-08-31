@@ -2,6 +2,9 @@ load('local_data/settings.rda')
 library(data.table)
 start <- settings[[1]]
 rebuild_index <- settings[[2]]
+# Set rebuild index to TRUE if you want to start again from scratch
+# rebuild_index <- TRUE
+
 
 # Download all logs from start until now into this folder (actually a subfolder)
 if(rebuild_index) {
@@ -53,20 +56,14 @@ if(length(missing_days) > 0) {
     udl <- updated_downloads[ , length(unique(ip_id)), by = 'package']
     rm(updated_downloads) # purge the large object
     dl <- rbind(dl, udl)
+    # This will update the numbers
+    dl <- dl[, sum(V1), by = "package"]
   }
 }
 
 # Now we reduce the giant CRAN log to just our packages, and just to unique IP downloads
 
-# package <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengine", 
-#     "ecoretriever", "elastic", "elife", "floras", "fulltext", "geonames", "gistr", 
-#     "jekyll-knitr", "knitr-ruby", "mocker", "neotoma", "plotly", "rAltmetric", "rAvis", 
-#     "rbhl", "rbison", "rcrossref", "rdatacite", "rdryad", "rebird", "rentrez", "reol", 
-#     "reproducibility-guide", "rfigshare", "rfishbase", "rfisheries", "rflybase", 
-#     "rgauges", "rgbif", "rglobi", "rhindawi", "rImpactStory", "rinat", "RMendeley", 
-#     "rmetadata", "RNeXML", "rnoaa", "rnpn", "rotraits", "rplos", "rsnps", "rspringer", 
-#     "rvertnet", "rWBclimate", "solr", "spocc", "taxize", "togeojson", "treeBASE", 
-#     "ucipp", "testdat", "git2r", "EML")
+
 package_dt <- data.table(data.frame(package = sort(package)))
 
 setkey(package_dt, "package")
