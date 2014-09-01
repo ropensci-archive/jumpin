@@ -5,9 +5,12 @@ rebuild_index <- settings[[2]]
 # Set rebuild index to TRUE if you want to start again from scratch rebuild_index
 # <- TRUE Download all logs from start until now into this folder (actually a
 # subfolder)
-
-start <- ifelse(rebuild_index, as.Date("2012-10-01"), start)
-
+# start <- ifelse(rebuild_index, as.Date("2012-10-01"), start)
+if (rebuild_index) {
+    start <- as.Date("2012-10-01")
+} else {
+    start <- start
+}
 today <- as.Date(strsplit(as.character(lubridate::now()), " ")[[1]][1])
 all_days <- seq(start, today, by = "day")
 year <- as.POSIXlt(all_days)$year + 1900
