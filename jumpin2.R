@@ -5,7 +5,7 @@ library("yaml")
 suppressPackageStartupMessages(library("lubridate"))
 # This file has the CRAN downloads for the packages below.  To update, run
 # cran_downloads.R (this will take a while the first time)
-load("local_data/cran_downloads.rda")
+# load("local_data/cran_downloads.rda")
 ## List of rOpenSci packages
 pkgs <- package
 pkgs <- sort(pkgs)
