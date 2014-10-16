@@ -10,7 +10,9 @@ package <- c("alm", "AntWeb", "bmc", "bold", "clifro", "dependencies", "ecoengin
     "rhindawi", "rImpactStory", "rinat", "RMendeley", "rmetadata", "RNeXML", "rnoaa", 
     "rnpn", "traits", "rplos", "rsnps", "rspringer", "rvertnet", "rWBclimate", "solr", 
     "spocc", "taxize", "togeojson", "treeBASE", "ucipp", "testdat", "git2r", "rdat", 
-    "EML")
+    "EML", 'aRxiv','datapackage','dvn','gender','ggit','gigadb','historydata','ICES','mdextract','ots','paleobioDB',
+    'pangaear','prism','rDat','rebi','rnbn','rOBIS','rorcid','RSelenium','sheetseeR','usboundaries','zenodo')
+
 # IF YOU UPDATE THE LIST ABOVE, uncomment the line below rebuild_index = TRUE
 # Build CRAN index
 message("Updating CRAN logs. This will take a while if this is the first run")

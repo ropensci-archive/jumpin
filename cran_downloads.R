@@ -2,6 +2,7 @@ load("local_data/settings.rda")
 library(data.table)
 start <- settings[[1]]
 rebuild_index <- settings[[2]]
+rebuild_index <- TRUE
 # Set rebuild index to TRUE if you want to start again from scratch rebuild_index
 # <- TRUE Download all logs from start until now into this folder (actually a
 # subfolder)
