@@ -13,7 +13,7 @@ package <- c("alm","AntWeb","bmc","bold","clifro","dependencies",
             "git2r","rdat","EML",'aRxiv','datapackage','dvn','gender','ggit',
             'gigadb','historydata','ICES','mdextract','ots','paleobioDB',
             'pangaear','prism','rDat','rebi','rnbn','rOBIS','rorcid',
-            'RSelenium','sheetseeR','USAboundaries','zenodo')
+            'RSelenium','sheetseeR','USAboundaries','zenodo', 'binomen', 'rglobi', 'finch', 'datapackage')
 
 # Add the GitHub organization/user name before each page
 # You can also do this manually, especially if the packages belong to various accounts
